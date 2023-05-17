@@ -5,7 +5,7 @@ class Magaza:
         if satici_cinsi in ['tv', 'bilgisayar', 'beyaz esya','giyim']:
             self.__satici_cinsi = satici_cinsi
         else:
-            self.__satici_cinsi = 'diğer'
+            self.__satici_cinsi = 'diger'
         self.__satis_tutari = 0
 
     def set_magaza_adi(self, magaza_adi):
@@ -24,7 +24,7 @@ class Magaza:
         if satici_cinsi in ['tv', 'bilgisayar', 'beyaz esya','giyim']:
             self.__satici_cinsi = satici_cinsi
         else:
-            self.__satici_cinsi = 'diğer'
+            self.__satici_cinsi = 'diger'
 
     def get_satici_cinsi(self):
         return self.__satici_cinsi
