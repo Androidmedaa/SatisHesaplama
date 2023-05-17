@@ -1,3 +1,4 @@
+import giyim
 class Magaza:
     def __init__(self, magaza_adi, satici_adi, satici_cinsi):
         self.__magaza_adi = magaza_adi
@@ -90,3 +91,4 @@ def main():
         else:
             break
 main()
+giyim()
