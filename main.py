@@ -45,7 +45,7 @@ def main():
     while True:
         while True:
             # Mağaza bilgilerini kullanıcıdan al
-            magaza_adi = input("Mağaza adı: ")
+            magaza_adi = input("Mağaza adı gir: ")
             satici_adi = input("Satıcı adı: ")
             satici_cinsi = input("Satıcı cinsi (tv, bilgisayar, beyaz esya, diğer, giyim): ")
             satis_tutari = int(input("Satış tutarı: "))
