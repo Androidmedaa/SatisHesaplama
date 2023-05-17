@@ -2,7 +2,7 @@ class Magaza:
     def __init__(self, magaza_adi, satici_adi, satici_cinsi):
         self.__magaza_adi = magaza_adi
         self.__satici_adi = satici_adi
-        if satici_cinsi in ['tv', 'bilgisayar', 'beyaz esya']:
+        if satici_cinsi in ['tv', 'bilgisayar', 'beyaz esya','giyim']:
             self.__satici_cinsi = satici_cinsi
         else:
             self.__satici_cinsi = 'diğer'
@@ -21,7 +21,7 @@ class Magaza:
         return self.__satici_adi
 
     def set_satici_cinsi(self, satici_cinsi):
-        if satici_cinsi in ['tv', 'bilgisayar', 'beyaz esya']:
+        if satici_cinsi in ['tv', 'bilgisayar', 'beyaz esya','giyim']:
             self.__satici_cinsi = satici_cinsi
         else:
             self.__satici_cinsi = 'diğer'
@@ -46,7 +46,7 @@ def main():
     while True:
         magaza_adi = input("Mağaza adı: ")
         satici_adi = input("Satıcı adı: ")
-        satici_cinsi = input("Satıcı cinsi (tv, bilgisayar, beyaz esya, diğer): ")
+        satici_cinsi = input("Satıcı cinsi (tv, bilgisayar, beyaz esya, diğer, giyim): ")
         satis_tutari = int(input("Satış tutarı: "))
         satis = Magaza(magaza_adi, satici_adi, satici_cinsi)
         satis.set_satis_tutari(satis_tutari)
