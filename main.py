@@ -35,17 +35,12 @@ class Magaza:
     def get_satis_tutari(self):
         return self.__satis_tutari
 
-
     def magaza_satis_tutar(self):
         toplam_satis = 0
         for magaza in self.magazalar.values():
             toplam_satis += magaza.get_satis_tutari()
         return toplam_satis
-
-
 satislar = {}
-
-
 def main():
     while True:
         # Mağaza bilgilerini kullanıcıdan al
@@ -88,6 +83,4 @@ def main():
         if value.get_satici_adi() == satici_adi:
             toplam_satis += value.get_satis_tutari()
     print(f"{satici_adi} adlı satıcının yaptığı toplam satış tutarı: {toplam_satis} TL")
-
-
 main()
