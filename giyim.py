@@ -1,2 +1,2 @@
 #brunch test ornegidir
-print("İşlem Başarılı")
+print("İşlem Başarılı.")
