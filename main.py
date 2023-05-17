@@ -43,44 +43,50 @@ class Magaza:
 satislar = {}
 def main():
     while True:
-        # Mağaza bilgilerini kullanıcıdan al
-        magaza_adi = input("Mağaza adı: ")
-        satici_adi = input("Satıcı adı: ")
-        satici_cinsi = input("Satıcı cinsi (tv, bilgisayar, beyaz esya, diğer, giyim): ")
-        satis_tutari = int(input("Satış tutarı: "))
+        while True:
+            # Mağaza bilgilerini kullanıcıdan al
+            magaza_adi = input("Mağaza adı: ")
+            satici_adi = input("Satıcı adı: ")
+            satici_cinsi = input("Satıcı cinsi (tv, bilgisayar, beyaz esya, diğer, giyim): ")
+            satis_tutari = int(input("Satış tutarı: "))
 
-        # Yeni bir Magaza nesnesi oluştur
-        satis = Magaza(magaza_adi, satici_adi, satici_cinsi)
-        satis.set_satis_tutari(satis_tutari)
+            # Yeni bir Magaza nesnesi oluştur
+            satis = Magaza(magaza_adi, satici_adi, satici_cinsi)
+            satis.set_satis_tutari(satis_tutari)
 
-        # Satışları satislar sözlüğüne ekle
-        satislar[len(satislar) + 1] = satis
+            # Satışları satislar sözlüğüne ekle
+            satislar[len(satislar) + 1] = satis
 
-        # Yeni bir satış eklemek isteyip istemediğini kontrol et
-        devam = input("Yeni satış eklemek için 'e', çıkmak için herhangi bir tuşa basın: ")
-        if devam.lower() != 'e':
+            # Yeni bir satış eklemek isteyip istemediğini kontrol et
+            devam = input("Yeni satış eklemek için 'e', çıkmak için herhangi bir tuşa basın: ")
+            if devam.lower() != 'e':
+                break
+
+        # Eklenen satışları ekrana yazdır
+        for key, value in satislar.items():
+            print(f"{key}. Mağaza adı: {value.get_magaza_adi()}, "
+                f"Satıcı adı: {value.get_satici_adi()}, "
+                f"Satıcı cinsi: {value.get_satici_cinsi()}, "
+                f"Satış tutarı: {value.get_satis_tutari()}")
+
+        # Toplam satışları mağaza adına göre hesapla ve ekrana yazdır
+        magaza_adi = input("Toplam satışını öğrenmek istediğiniz mağaza adı: ")
+        toplam_satis = 0
+        for value in satislar.values():
+            if value.get_magaza_adi() == magaza_adi:
+                toplam_satis += value.get_satis_tutari()
+        print(f"{magaza_adi} mağazasının toplam satış tutarı: {toplam_satis} TL")
+
+        # Toplam satışları satıcı adına göre hesapla ve ekrana yazdır
+        satici_adi = input("Toplam satışını öğrenmek istediğiniz satıcının adı: ")
+        toplam_satis = 0
+        for value in satislar.values():
+            if value.get_satici_adi() == satici_adi:
+                toplam_satis += value.get_satis_tutari()
+        print(f"{satici_adi} adlı satıcının yaptığı toplam satış tutarı: {toplam_satis} TL")
+        devam=input("devam etmek için 'e' çıkış yapmak için herhangi bir tuşa basınız: ")
+        if devam=='e':
+            continue
+        else:
             break
-
-    # Eklenen satışları ekrana yazdır
-    for key, value in satislar.items():
-        print(f"{key}. Mağaza adı: {value.get_magaza_adi()}, "
-              f"Satıcı adı: {value.get_satici_adi()}, "
-              f"Satıcı cinsi: {value.get_satici_cinsi()}, "
-              f"Satış tutarı: {value.get_satis_tutari()}")
-
-    # Toplam satışları mağaza adına göre hesapla ve ekrana yazdır
-    magaza_adi = input("Toplam satışını öğrenmek istediğiniz mağaza adı: ")
-    toplam_satis = 0
-    for value in satislar.values():
-        if value.get_magaza_adi() == magaza_adi:
-            toplam_satis += value.get_satis_tutari()
-    print(f"{magaza_adi} mağazasının toplam satış tutarı: {toplam_satis} TL")
-
-    # Toplam satışları satıcı adına göre hesapla ve ekrana yazdır
-    satici_adi = input("Toplam satışını öğrenmek istediğiniz satıcının adı: ")
-    toplam_satis = 0
-    for value in satislar.values():
-        if value.get_satici_adi() == satici_adi:
-            toplam_satis += value.get_satis_tutari()
-    print(f"{satici_adi} adlı satıcının yaptığı toplam satış tutarı: {toplam_satis} TL")
 main()
